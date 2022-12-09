@@ -1,0 +1,143 @@
+<html>
+
+<head>
+
+	<script src="../js/espera.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/gsap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+
+<style text="text/CSS">
+
+	@font-face {src: url('../fonts/Steagisler.otf'); font-family: "Steagisler";}
+
+	body {
+		width: 1920px;
+		height: 1080px;
+		overflow: hidden;
+		background: transparent;
+		padding: 0px;
+		margin: 0px;
+		text-transform: none;
+		color: white;
+		font-family: "Steagisler";
+		-webkit-font-smoothing: antialiased;
+	}
+
+	#fondo{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 2; 
+		-webkit-mask-image: url("../imgs/espera/fondo_mask.png");
+		-webkit-mask-size: 100%;
+	}
+
+	#overlay{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 4; 
+	}
+
+	
+	#logoWrapper{
+		position: absolute;
+		z-index: 5;
+		opacity: 0;
+	}
+
+
+	.logos {
+		width: 175px;
+	    height: auto;
+	    position: absolute;
+	    left: 1602px;
+	    top: 875px;
+	    opacity: 1;
+	}
+
+	
+	div.indexInfo {
+	  position:absolute; z-index:5;
+	}
+
+
+	#eventoWrapper{
+		position: absolute;
+	    z-index: 5;
+	}
+
+	#nEvento{
+		position: absolute;
+	    top: 36px;
+	    width: 1355px;
+	    height: 175px;
+	    line-height: 175px;
+	    text-align: center;
+	    font-size: 100px;
+	    left: 75px;
+	    opacity: 0;
+	    z-index: 5;
+	}
+
+	#round {
+		position: absolute;
+	    top: 927px;
+	    width: 360px;
+	    height: 116px;
+	    left: 780px;
+	    line-height: 116px;
+	    text-align: center;
+	    font-size: 55px;
+	    z-index: 5;
+	    opacity: 0;
+	}
+
+	#gameHold {
+		display: none;
+	}
+
+	.hold {
+		display: none;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+	<div id="backgroundOverlay">
+		<img id="fondo" src="../imgs/fondo.png"></img>
+		<img id="overlay" src="../imgs/espera/espera.png"></img>
+	</div>
+
+
+	<div id="infoEspera">
+
+	<div id="containerInfo" class="indexInfo">
+
+		<div id="eventoWrapper">
+			<span id="nEvento"></span>
+		</div>
+	</div>
+
+	</div>
+	
+	<div id="gameHold" class="hold"></div> <!-- div que esconde el valor del campo "game" -->
+
+	<div id="logoWrapper">
+		<img id="logo" class="logos" src="../imgs/logos/logo.png"></img>
+	</div>
+
+<script type="text/javascript">
+
+	var eventSize = '100px'; //valor de font por defecto para #nEvento, debe coincidir con valor en css
+
+</script>
+
+
+</body>
+
+</html>

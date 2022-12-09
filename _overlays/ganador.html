@@ -1,0 +1,197 @@
+<html>
+
+<head>
+
+	<script src="../js/ganador.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/gsap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+
+<style text="text/CSS">
+
+	@font-face {src: url('../fonts/Steagisler.otf'); font-family: "Steagisler";}
+
+	body {
+		width: 1920px;
+		height: 1080px;
+		overflow: hidden;
+		background: transparent;
+		padding: 0px;
+		margin: 0px;
+		text-transform: none;
+		color: white;
+		font-family: "Steagisler";
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.infoGanador {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+
+	.personajes{
+		position: absolute;
+		width: 960px;
+    	height: auto;
+		z-index: 3;
+	}
+
+	#fondo{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 2; 
+	}
+
+	#overlay{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 4; 
+	}
+
+	#pGanador {
+		position: absolute;
+	    top: 448px;
+	    width: 868px;
+	    height: 200px;
+	    line-height: 200px;
+	    left: 1006px;
+	    text-align: center;
+	    font-size: 200px;
+	    opacity: 1;
+	    z-index: 5;
+	}
+	
+	#logoWrapper{
+		position: absolute;
+		z-index: 5; 
+		opacity: 0;
+	}
+
+	.logos {
+		width: 222px;
+	    height: auto;
+	    position: absolute;
+	    left: 1329px;
+	    top: 845px;
+	    opacity: 1;
+	}
+
+	
+	div.indexChars {
+	  position:absolute; z-index:3;
+	}
+
+	div.indexInfo {
+	  position:absolute; z-index:5;
+	}
+
+	.nicks {
+		position: absolute;
+	    width: 774px;
+	    height: 156px;
+	    line-height: 156px;
+	    text-align: center;
+	    top: 654px;
+	    font-size: 85px;
+	    z-index: 5;
+	}	
+
+	#p1Nick {
+		position: absolute;
+	    left: 1053px;
+	    text-align: center;
+	    opacity: 0;
+	}
+	
+	
+	#pj1Wrapper{
+		opacity: 0;
+	}
+
+	#imgPersonaje1{
+		left: 0px;
+	}
+
+
+	#eventoWrapper{
+		position: absolute;
+	    z-index: 5;
+	}
+
+	#nEvento{
+		position: absolute;
+	    top: 86px;
+	    width: 774px;
+	    height: 156px;
+	    line-height: 156px;
+	    text-align: center;
+	    font-size: 100px;
+	    left: 1053px;
+	    opacity: 0;
+	    z-index: 5;
+	}
+
+	#gameHold {
+		display: none;
+	}
+
+	.hold {
+		display: none;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+	<div id="backgroundOverlay">
+		<img id="fondo" src="../imgs/fondo.png"></img>
+		<img id="overlay" src="../imgs/ganador/ganador.png"></img>
+	</div>
+
+	<span id="pGanador">Ganador</span>
+
+	<div id="containerChars1" class="indexChars">
+
+		<div id="pj1WrapperGeneral">
+			<span id="pj1Wrapper" class="personajes">
+				<img id="imgPersonaje1" class="personajes"></img>
+			</span> 
+		</div>
+
+	</div>
+
+	<div id="infoGanador">
+
+	<div id="containerInfo" class="indexInfo">
+		<div id="leftWrapper">
+			<span id="p1Nick" class="nicks"></span>
+		</div>
+	
+		<div id="eventoWrapper">
+			<span id="nEvento"></span>
+		</div>
+	</div>
+
+	</div>
+	
+	<div id="gameHold" class="hold"></div> <!-- div que esconde el valor del campo "game" -->
+
+	<div id="logoWrapper">
+		<img id="logo" class="logos" src="../imgs/logos/logo.png"></img>
+	</div>
+
+<script type="text/javascript">
+
+	var nameSize = '85px'; //valor de font por defecto para #p1Nick,debe coincidir con valor en css de .nicks
+	var eventSize = '100px'; //valor de font por defecto para #nEvento, debe coincidir con valor en css
+</script>
+
+
+</body>
+
+</html>
