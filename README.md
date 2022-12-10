@@ -10,7 +10,7 @@ Proyecto de ejemplo para StreamControl con plantillas para overlays que pueden u
 - [StreamControl](https://farpnut.net/streamcontrol/) - Programa utilizado para configuración de campos en los overlays
 - StreamControl.exe utilizado se descargó del proyecto [Shieldbreakers-StreamControl-setup](https://github.com/MiggL/Shieldbreakers-StreamControl-setup/), este incluye información sobre como agregar módulos de StartGG y Challonge a StreamControl
 - [TweenMax](https://greensock.com/products/products/tweenmax-r1/) - Librería usada para animaciones en JavaScript
-- [Tutorial detallado de StreamControl](https://www.youtube.com/watch?v=qqyFknxaVWo) - [@bgcallisto]
+- [Tutorial detallado de StreamControl](https://www.youtube.com/watch?v=qqyFknxaVWo) - [@bgcallisto](https://twitter.com/BGCallisto)
 
 ## Contenido
 
