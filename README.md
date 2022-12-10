@@ -8,7 +8,7 @@ Proyecto de ejemplo para StreamControl con plantillas para overlays que pueden u
 
 - Directorio de Google Drive con los archivos PSD de los overlays creadas - [URL Google Drive](https://drive.google.com/drive/folders/1zCaCSO4HQP1T-pTdoRBYa790vfsSNNEw?usp=sharing)
 - [StreamControl](https://farpnut.net/streamcontrol/) - Programa utilizado para configuración de campos en los overlays
-- StreamControl.exe utilizado se descargó del proyecto [Shieldbreakers-StreamControl-setup](https://github.com/MiggL/Shieldbreakers-StreamControl-setup/), este incluye información sobre como agregar modulos de StartGG y Challonge a StreamControl
+- StreamControl.exe utilizado se descargó del proyecto [Shieldbreakers-StreamControl-setup](https://github.com/MiggL/Shieldbreakers-StreamControl-setup/), este incluye información sobre como agregar módulos de StartGG y Challonge a StreamControl
 - [TweenMax](https://greensock.com/products/products/tweenmax-r1/) - Librería usada para animaciones en JavaScript
 - [Tutorial detallado de StreamControl](https://www.youtube.com/watch?v=qqyFknxaVWo) - [@bgcallisto]
 
@@ -16,12 +16,12 @@ Proyecto de ejemplo para StreamControl con plantillas para overlays que pueden u
 
 Este ejemplo contiene la base para lo siguiente:
 
-- Scoreboard para puntajes y logo con logica para moverlo hacia la derecha en caso de ser necesario
+- Scoreboard para puntajes y logo con lógica para moverlo hacia la derecha en caso de ser necesario
 - Pantalla de espera con espacios para el nombre del evento, la captura del juego y el chat
 - Pantalla para mostrar a los casters con campos para agregar los nombres
 - Pantalla de previa para una partida donde se muestra el nombre de ambos participantes y sus personajes correspondientes
 - Pantalla para mostrar al ganador del evento junto con su personaje
-- Imagenes de referencia para multiples juegos de pelea (en imgs/demo)
+- Imágenes de referencia para múltiples juegos de pelea (en imgs/demo)
 
 ## Pasos para utilizar en OBS
 
@@ -52,18 +52,17 @@ Este ejemplo contiene la base para lo siguiente:
 
 ### Agregar personajes de otros juegos
 
-- Para agregar otros juegos al ejemplo lo unico que se necesita es crear un nuevo directorio con el nombre del juego que se quiera agregar en "imgs/chars"(el nombre de esta carpeta es el que deberán usar en el campo "Juego" en StreamControl), dentro de este se deben agregar las imagenes de los personajes del juego en formato PNG, en resolución 960x1080 y con los nombres en minuscula
+- Para agregar otros juegos al ejemplo lo único que se necesita es crear un nuevo directorio con el nombre del juego que se quiera agregar en "imgs/chars"(el nombre de esta carpeta es el que deberán usar en el campo "Juego" en StreamControl), dentro de este se deben agregar las imágenes de los personajes del juego en formato PNG, en resolución 960x1080 y con los nombres en minúscula
 
 ### Cambiar el fondo gris que tienen las escenas
 
-- El fondo de todos los overlays viene de la imagen fondo.png, simplemente se debe cambiar esa imagen por otra que tenga resolución 1920x1080 dejandole de nombre fondo.png
+- El fondo de todos los overlays viene de la imagen fondo.png, simplemente se debe cambiar esa imagen por otra que tenga resolución 1920x1080 dejándole de nombre fondo.png
 
 ### Editar diseño de overlays del ejemplo
 
-- Dentro del directorio "imgs" se encuentran todas las imagenes utilizadas por los html para armar los overlays, debido a esto en caso de que se quiera tener los campos de texto y/o personajes en las mismas posiciones del ejemplo solo se debe reemplazar las imagenes con las que uno genere, para el caso donde no se quiera tener los campos en esas posiciones se deberá editar el css de los overlays que se encuentra dentro de los html en el directorio "overlays"
+- Dentro del directorio "imgs" se encuentran todas las imágenes utilizadas por los html para armar los overlays, debido a esto en caso de que se quiera tener los campos de texto y/o personajes en las mismas posiciones del ejemplo solo se debe reemplazar las imágenes con las que uno genere, para el caso donde no se quiera tener los campos en esas posiciones se deberá editar el css de los overlays que se encuentra dentro de los html en el directorio "overlays"
 
 ### Cambiar font utilizado por los overlays
 
-- El font utilizado por este ejemplo esta ubicado en el directorio "fonts", para utilizar uno diferente se debe agregar el archivo del font y luego referenciarlo en los html (Usar de referencia el font-face de Steagisler que se encuentra en los html)
-	- Nota: Al cambiar el font puede que se requiera ajustar los tamaños de los textos para que aparezcan correctamente en los overlays 
-
+- El font utilizado por este ejemplo está ubicado en el directorio "fonts", para utilizar uno diferente se debe agregar el archivo del font y luego referenciarlo en los html (Usar de referencia el font-face de Steagisler que se encuentra en los html)
+	- Nota: Al cambiar el font puede que se requiera ajustar los tamaños de los textos para que aparezcan correctamente en los overlays
