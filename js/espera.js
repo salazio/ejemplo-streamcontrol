@@ -43,7 +43,7 @@ function init(){
 			$('#gameHold').html(game);
 			var nEvento = scObj['nEvento'];
 			
-			cargaLogo(game);
+			cargarLogo();
 			cargaEvento('#nEvento',nEvento);
 
 			//Se ejecuta función que carga las variables en los elementos
@@ -63,7 +63,6 @@ function init(){
 	function getData(){
 		
 		//Se asigna valor de juego actual para cargar información
-		game = scObj['game'];
 		var nEvento = scObj['nEvento'];
 
 		/*Se valida si el valor del campo fue modificado en Streamcontrol, de ser el caso se actualiza y se valida
@@ -72,22 +71,16 @@ function init(){
 			cargaEvento('#nEvento',nEvento);
 		}
 
-		if($('#gameHold').text() != game){ //Se revisa si el valor del juego seleccionado ha cambiado
-			$('#gameHold').html(game); 
-			cargaLogo(game);
-		}	
 	}
 
-	
-	function cargaLogo(juego){
-		//Esconder logos para refrescar y cambiar
+	//Función que esconde logos para refrescar y cambiar
+	function cargarLogo(){
 		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
 			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 	}
 
 	
-
 	//función que valida si el largo del texto entra en el espacio asignado, en caso contrario se ajusta el tamaño del texto
 	function validarTextos(texto) {
 		$(texto).each(function(i, texto) {
@@ -98,6 +91,8 @@ function init(){
 		});
 	}
 
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargaEvento(campoCSS,valor){
 
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){

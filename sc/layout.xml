@@ -26,7 +26,7 @@
 		<!-- Reset de puntajes a 0 -->
 		<button type="reset" x="30" y="90" width="40" height="23" id="reset" reset="p1Score,p2Score">Reset</button>
 		<!-- Cambia campos de lado -->
-		<button type="swap" x="80" y="90" width="100" height="23" id="swap" swapSet1="p1Nick,p1Team,p1Score,p1Char,p1Flag" swapSet2="p2Nick,p2Team,p2Score,p2Char,p2Flag">Cambio de lado</button>
+		<button type="swap" x="80" y="90" width="100" height="23" id="swap" swapSet1="p1Nick,p1Team,p1Score,p1Char" swapSet2="p2Nick,p2Team,p2Score,p2Char">Cambio de lado</button>
 	</tab>
 	<tab name="Casters">
 	      <label x="35" y="10" width="60" height="13">CASTERS</label>
@@ -61,11 +61,11 @@
 		<label x="220" y="10" width="80" height="13">PERSONAJE</label>
 		<!-- Info Player Ganador -->
 		<label x="15" y="35" width="100" height="13">Ganador:</label>
-		<lineEdit id="ganador1Nick" x="80" y="30" width="130" height="20" dataSet="players.csv" dataField="1">Nick Ganador</lineEdit>
+		<lineEdit id="gNick" x="80" y="30" width="130" height="20" dataSet="players.csv" dataField="1">Nick Ganador</lineEdit>
 		<!-- Personajes -->
-		<lineEdit id="ganador1Char" x="220" y="30" width="85" height="20" dataSet="players.csv" dataField="2" master="ganador1Nick">Personaje</lineEdit>
+		<lineEdit id="gChar" x="220" y="30" width="85" height="20" dataSet="players.csv" dataField="2" master="gNick">Personaje</lineEdit>
 		<!-- Botones para borrar campos -->
-		<button type="reset" x="320" y="30" width="40" height="23" id="clear1" reset="ganador1Nick,ganador1Char">Borrar</button>
+		<button type="reset" x="320" y="30" width="40" height="23" id="clear1" reset="gNick,gChar">Borrar</button>
 	</tab>
   </tabSet>
 </tab>

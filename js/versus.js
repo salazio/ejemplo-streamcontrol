@@ -47,8 +47,8 @@ function init(){
 			$('#gameHold').html(game);
 			var round = scObj['round'];
 
-			cargaLogo(game);
-			cargaRound('#round',round);
+			cargarLogo();
+			cargarRound('#round',round);
 
 			//Se ejecuta función que carga las variables en los elementos
 			getData();
@@ -67,9 +67,11 @@ function init(){
 	function getData(){
 		
 		//Se asigna valor de juego actual para cargar información
+		
 		game = scObj['game'];
 
 		//Se busca en JSON generado por StreamControl los valores necesarios para la escena
+		//Nota: El valor del personaje siempre se busca en minúscula, tener en cuenta esto para las imágenes que se agreguen	
 		var p1Nick = scObj['p1Nick'];
 		var p2Nick = scObj['p2Nick'];
 
@@ -84,7 +86,6 @@ function init(){
 			p2CharActual = p2Char;
 
 			//Carga inicial de personajes en base al juego seleccionado
-
 			TweenMax.to('.indexChars',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
 				cargarPersonaje1(game,p1Char);
 				cargarPersonaje2(game,p2Char);
@@ -92,7 +93,6 @@ function init(){
 			}});
 
 			//Carga inicial de textos y validaciones de largo
-
 			cargarNick('#p1Nick',p1Nick);
 			cargarNick('#p2Nick',p2Nick);
 
@@ -113,16 +113,13 @@ function init(){
 				cargarNick('#p2Nick',p2Nick);
 			}
 
-
 			/*Se valida si el valor del campo fue modificado en Streamcontrol, de ser el caso se actualiza y se valida
 			su largo para ajustar el font en caso de ser necesario*/
 			if($('#round').text() != round){
-				cargaRound('#round',round);
+				cargarRound('#round',round);
 			}
 
-			
-			//Se valida si el personaje seleccionado ha sido modificado en streamconntrol
-			
+			//Se valida si el personaje seleccionado ha sido modificado en streamconntrol			
 			if(p1CharActual != p1Char){
 				cargarPersonaje1(game,p1Char);
 			}
@@ -137,23 +134,21 @@ function init(){
 				cargarPersonaje1(game,p1Char);
 				cargarPersonaje2(game,p2Char);
 				$('#gameHold').html(game); 
-				cargaLogo(game);
+				cargarLogo();
 			}
-
 		}
 	}
 
-	
-	function cargaLogo(juego){
-		//Esconder logos para refrescar y cambiar
+	//Función que esconde logos para refrescar y cambiar
+	function cargarLogo(){
 		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
 			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 	}
 
-	
+	/* Funciones encargadas de reemplazar la imagen con la que venga del campo en StreamControl, el .png del personaje 
+	se busca en el directorio del juego que esté indicando en el campo "Juego" (BBCF/GGST/etc)*/
 	function cargarPersonaje1(juego,nombrePersonaje){
-
 		TweenMax.to("#pj1Wrapper",.3,{css:{opacity: 0},delay:0,onComplete:function(){
 			$("#imgPersonaje1").attr("src","../imgs/chars/"+juego+"/"+nombrePersonaje+".png").on("error",function(){
 				$("#imgPersonaje1").attr("src",imgDefaultVersus);
@@ -162,12 +157,9 @@ function init(){
 			p1CharActual = nombrePersonaje;
 			TweenMax.to("#pj1Wrapper",.3,{css:{opacity: 1},delay:.2});
 		}});
-				
-
 	}
 
 	function cargarPersonaje2(juego,nombrePersonaje){
-
 		TweenMax.to("#pj2Wrapper",.3,{css:{opacity: 0},delay:0,onComplete:function(){
 			$("#imgPersonaje2").attr("src","../imgs/chars/"+juego+"/"+nombrePersonaje+".png").on("error",function(){
 				$("#imgPersonaje2").attr("src",imgDefaultVersus);
@@ -176,8 +168,6 @@ function init(){
 			p2CharActual = nombrePersonaje;
 			TweenMax.to("#pj2Wrapper",.3,{css:{opacity: 1},delay:.2});
 		}});
-				
-
 	}
 
 
@@ -191,8 +181,9 @@ function init(){
 		});
 	}
 
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarNick(campoCSS,valor){
-
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
 				$(campoCSS).css('font-size',nameSize); 
 				$(campoCSS).html(valor); 				
@@ -201,10 +192,11 @@ function init(){
 					
 				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.4}); 
 		}});
-
 	}
 
-	function cargaRound(campoCSS,valor){
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
+	function cargarRound(campoCSS,valor){
 
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
 				$(campoCSS).css('font-size',rdSize);
@@ -214,8 +206,6 @@ function init(){
 					
 				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
 		}});
-
 	}
-
 
 }

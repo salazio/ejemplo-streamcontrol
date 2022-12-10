@@ -40,7 +40,7 @@ function init(){
 			$('#gameHold').html(game);
 			var nEvento = scObj['nEvento'];
 
-			cargaLogo(game);
+			cargarLogo();
 			cargaEvento('#nEvento',nEvento);
 
 			//Se ejecuta función que carga las variables en los elementos
@@ -105,21 +105,18 @@ function init(){
 			if($('#gameHold').text() != game){ 
 
 				$('#gameHold').html(game); 
-				cargaLogo(game);
+				cargarLogo();
 			}
 
 		}
 	}
 
-	
-	function cargaLogo(juego){
-		//Esconder logos para refrescar y cambiar
+	//Función que esconde logos para refrescar y cambiar
+	function cargarLogo(){
 		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
 			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 	}
-
-
 
 	//función que valida si el largo del texto entra en el espacio asignado, en caso contrario se ajusta el tamaño del texto
 	function validarTextos(texto) {
@@ -131,6 +128,8 @@ function init(){
 		});
 	}
 
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarCaster(campoCSS,valor){
 
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
@@ -144,6 +143,8 @@ function init(){
 
 	}
 
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargaEvento(campoCSS,valor){
 
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){

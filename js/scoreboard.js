@@ -75,7 +75,7 @@ function init(){
 			game = scObj['game']; 
 			$('#gameHold').html(game);
 
-			cargaLogo(game);
+			cargarLogo(game);
 			cargaScoreboard(game);
 
 			//Se ejecuta función que carga las variables en los elementos
@@ -106,11 +106,10 @@ function init(){
 
 		if(startup){
 
-			cargaRound('#round',round);
+			cargarRound('#round',round);
 			cargarNick('#p1Nick',p1Nick);
 			cargarNick('#p2Nick',p2Nick);
 
-			
 		}
 		else{
 			//Se asigna valor del juego seleccionado en streamcontrol
@@ -141,7 +140,7 @@ function init(){
 			/*Se valida si el valor del campo fue modificado en Streamcontrol, de ser el caso se actualiza y se valida
 			su largo para ajustar el font en caso de ser necesario*/
 			if($('#round').text() != round){
-				cargaRound('#round',round);
+				cargarRound('#round',round);
 			}
 
 			//Se revisa si el valor del juego seleccionado ha cambiado
@@ -149,7 +148,7 @@ function init(){
 
 					$('#gameHold').html(game);
 
-					cargaLogo(game);
+					cargarLogo(game);
 					cargaScoreboard(game);
 			}
 		}
@@ -184,10 +183,11 @@ function init(){
 				
 	}
 
-	function cargaLogo(juego){
-		//Esconder logos para refrescar y cambiar posiciones en caso de que corresponda
+	/*Función que esconde logos para refrescar y cambiar, en este caso dependiendo del juego ingresado se decide si el
+	logo se mantiene al centro o se mueve a la derecha debido a que topa con las barras del juego*/
+	function cargarLogo(juego){
 		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
-			asignarPosLogos(game);
+			asignarPosLogos(juego);
 			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 
@@ -203,6 +203,8 @@ function init(){
 		});
 	}
 
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarNick(campoCSS,valor){
 
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
@@ -216,7 +218,9 @@ function init(){
 
 	}
 
-	function cargaRound(campoCSS,valor){
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
+	function cargarRound(campoCSS,valor){
 
 		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
 				$(campoCSS).css('font-size',rdSize);
@@ -229,6 +233,8 @@ function init(){
 
 	}
 
+	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
+	devolver la opacidad*/
 	function cargarScore(scoreWrap,valorScore){
 
 		TweenMax.to(scoreWrap,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){

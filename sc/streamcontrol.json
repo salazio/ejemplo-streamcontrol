@@ -1,9 +1,9 @@
 {
     "c1Nick": "Caster A",
     "c2Nick": "Caster B",
+    "gChar": "Noel",
+    "gNick": "Player 1",
     "game": "BBCF",
-    "ganador1Char": "Noel",
-    "ganador1Nick": "Player 1",
     "nEvento": "Torneo Ejemplo",
     "p1Char": "Noel",
     "p1Nick": "Player 1",
@@ -12,5 +12,5 @@
     "p2Nick": "Player 2",
     "p2Score": "0",
     "round": "Grand Finals",
-    "timestamp": "1664732991"
+    "timestamp": "1670712308"
 }
