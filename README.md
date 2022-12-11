@@ -41,7 +41,7 @@ Este ejemplo contiene la base para lo siguiente:
 ![Scoreboard2](https://i.imgur.com/X04jlRa.png)
 ![Espera](https://i.imgur.com/4iJ0EAd.png)
 ![Casters](https://i.imgur.com/KizTP6e.png)
-![Versus](https://i.imgur.com/KizTP6e.png)
+![Versus](https://i.imgur.com/RV1OrwD.png)
 ![Ganador](https://i.imgur.com/omOq0VS.png)
 
 ## Tips para editar contenido
