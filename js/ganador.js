@@ -82,9 +82,9 @@ function init(){
 
 			//Carga inicial de personajes en base al juego seleccionado
 
-			TweenMax.to('.indexChars',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
+			gsap.to('.indexChars',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
 				cargarPersonaje(game,gChar);
-			TweenMax.to('.indexChars',2,{css:{opacity: 1},delay:.1});
+			gsap.to('.indexChars',2,{css:{opacity: 1},delay:.1});
 			}});
 
 			//Carga inicial de textos y validaciones de largo
@@ -123,21 +123,21 @@ function init(){
 
 	//Función que esconde logos para refrescar y cambiar
 	function cargarLogo(){
-		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
-			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
+		gsap.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
+			gsap.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 	}
 
 	/* Función encargada de reemplazar la imagen con la que venga del campo en StreamControl, el .png del personaje 
 	se busca en el directorio del juego que esté indicando en el campo "Juego" (BBCF/GGST/etc)*/
 	function cargarPersonaje(juego,nombrePersonaje){
-		TweenMax.to("#pjWrapper",.3,{css:{opacity: 0},delay:0,onComplete:function(){
+		gsap.to("#pjWrapper",.3,{css:{opacity: 0},delay:0,onComplete:function(){
 			$("#imgPersonaje").attr("src","../imgs/chars/"+juego+"/"+nombrePersonaje+".png").on("error",function(){
 				$("#imgPersonaje").attr("src",imgDefaultGanador);
 			});
 
 			gCharActual = nombrePersonaje;
-			TweenMax.to("#pjWrapper",.3,{css:{opacity: 1},delay:.2});
+			gsap.to("#pjWrapper",.3,{css:{opacity: 1},delay:.2});
 		}});		
 	}
 
@@ -154,26 +154,26 @@ function init(){
 	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
 	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarNick(campoCSS,valor){
-		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
+		gsap.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
 				$(campoCSS).css('font-size',nameSize); 
 				$(campoCSS).html(valor); 				
 
 				validarTextos(campoCSS);
 					
-				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.4}); 
+				gsap.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.4}); 
 		}});
 	}
 
 	/*cambio de valor en texto, se esconde el elemento sacando la opacidad para luego modificar el valor y finalmente
 	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarEvento(campoCSS,valor){
-		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
+		gsap.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
 				$(campoCSS).css('font-size',eventSize);
 				$(campoCSS).html(valor);					
 
 				validarTextos(campoCSS);
 					
-				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
+				gsap.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
 		}});
 	}
 

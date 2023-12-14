@@ -75,8 +75,8 @@ function init(){
 
 	//Función que esconde logos para refrescar y cambiar
 	function cargarLogo(){
-		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
-			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
+		gsap.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
+			gsap.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 	}
 
@@ -95,13 +95,13 @@ function init(){
 	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargaEvento(campoCSS,valor){
 
-		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
+		gsap.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
 				$(campoCSS).css('font-size',eventSize);
 				$(campoCSS).html(valor);					
 
 				validarTextos(campoCSS);
 					
-				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
+				gsap.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
 		}});
 
 	}

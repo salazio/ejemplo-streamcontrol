@@ -3,9 +3,8 @@
 <head>
 
 	<script src="../js/scoreboard.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/libs/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/libs/gsap.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/libs/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
 
 
 <style text="text/CSS">
@@ -39,29 +38,34 @@
 
 	.barraNombre{
 		position: absolute;
-		top: 4px;
+		left: 0px;
+		/*top: -60px;*/
 		z-index: 3;
 	}
 
 	#barraPlayer1{
+		position: absolute;
 		left: 310px;
 	}
 
 	#barraPlayer2{
+		position: absolute;
 		left: 1250px;
 	}
 
 	.barraScore{
 		position: absolute;
-		top: 4px;
+		/*top: -60px;*/
 		z-index: 1;
 	}
 
 	#barraScore1{
+		position: absolute;
 		left: 680px;
 	}
 
 	#barraScore2{
+		position: absolute;
 		left: 1190px;
 	}
 
@@ -76,7 +80,7 @@
 	    height: 40px;
 	    line-height: 40px;
 	    text-align: center;
-	    top: 10px;
+	    top: 6px;
 	    font-size: 29px;
 	    z-index: 4;
 	}	
@@ -95,7 +99,7 @@
 		height: 40px;
 		line-height: 40px;
 		text-align: center;
-		top: 10px;
+		top: 6px;
 		font-size: 38px;
 		opacity: 0;
 		z-index: 4;
@@ -127,9 +131,19 @@
 		opacity: 0;
 	}
 
-	#scoreboardWrapper{
+	#scoreboardWrapperGeneral{
 		position: absolute;
 		top: -60px;
+		z-index: 1;
+	}
+
+	#scoreboardWrapperP1{
+		position: absolute;
+		z-index: 1;
+	}
+
+	#scoreboardWrapperP2{
+		position: absolute;
 		z-index: 1;
 	}
 	
@@ -166,26 +180,40 @@
 		</div>
 	</div>
 
-	<div id="scoreboardWrapper">
+	<div id="scoreboardWrapperGeneral">
 
-		<div id="barrasWrapper">
+	<div id="scoreboardWrapperP1">
+
+		<div id="barraWrapper1">
 			<img id="barraPlayer1" src="../imgs/scoreboard/barraPlayer.png" class="barraNombre"></img>
 			<img id="barraScore1" src="../imgs/scoreboard/barraScore.png" class="barraScore"></img>
+		</div>
+
+		<div id="containerTxt1" class="indexInfo">
+			<div id="leftWrapper">
+				<span id="p1Score" class="scores"></span>
+				<span id="p1Nick" class="nicks"></span>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="scoreboardWrapperP2">
+
+		<div id="barraWrapper2">
 			<img id="barraPlayer2" src="../imgs/scoreboard/barraPlayer.png" class="barraNombre"></img>
 			<img id="barraScore2" src="../imgs/scoreboard/barraScore.png" class="barraScore"></img>
 		</div>
-		
-		<div id="containerTxt" class="indexInfo">
-			<div id="leftWrapper">
-				<span id="p1Score" class="scores"/></span>
-				<span id="p1Nick" class="nicks"/>
-			</div>
+
+		<div id="containerTxt2" class="indexInfo">
 			<div id="rightWrapper">
 				<span id="p2Score" class="scores"></span>
-				<span id="p2Nick" class="nicks"/>
+				<span id="p2Nick" class="nicks"></span>
+				</span>
 			</div>
-			
 		</div>
+
+	</div>
 
 	</div>
 

@@ -13,36 +13,52 @@ function init(){
 	//Lista de juegos que requieren posiciones especiales de logos
 	const arrayLogoDer = ["UNICLR", "BBTAG", "EFZ", "ROA", "SOKU", "FOOTSIES", "LLB"];
 
-	/*Proceso donde dependiendo del juego definido en Streamcontrol el alto del scoreboard cambia para ir acorde a los 
+	/*Proceso donde dependiendo del juego definido en Streamcontrol la posicion del scoreboard cambia para ir acorde a los 
 	elementos del juego*/
-	function validaAltoScore(valorJuego){
+	function validaXYScore(valorJuego){
 
 		var alto = 0;
+		var separado = 0;
 			
 		switch(valorJuego){
 			case 'BBTAG':
 			case 'SAMSHO':
-				alto = 20;
+			case 'BBCF':
+				alto = 0;
+				separado = -90;
 				break;
 			case 'DNF':
 				alto = 22;
+				separado = 0;
 				break;
 			case 'UNICLR':
 			case 'MBTL':
 			case 'SFV':
 				alto = 25;
+				separado = -90;
+				break;
+			case 'SF6':
+				alto = 0;
+				separado = -10;
+				break;
+			case 'KARNOV':
+				alto = 35;
+				separado = 0;
 				break;
 			case 'USF4':
 				alto = 50;
+				separado = 0;
 				break;
 			case 'GGST':
-				alto = 50;
+				alto = 55;
+				separado = -35;
 				break;
 			default:
 				alto = 0;
+				separado = 0;
 		}
 
-		return alto;
+		return [alto,separado];
 
 	}
 
@@ -156,17 +172,20 @@ function init(){
 	
 	function cargaScoreboard(juego){
 
-	var altoScore = validaAltoScore(juego);
+	var XYScore = validaXYScore(juego);
 
 	//Se agrega visibilidad de elementos
-	TweenMax.to('.barraNombre',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0});
-	TweenMax.to('.barraScore',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0});
-	TweenMax.to('.nicks',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0.6});
-	TweenMax.to('.scores',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0.6});
-	TweenMax.to('#barraRound',.3,{css:{top: 0},ease:Quad.easeOut,delay:0.2});
+	gsap.to('.barraNombre',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0});
+	gsap.to('.barraScore',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0});
+	gsap.to('.nicks',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0.6});
+	gsap.to('.scores',.3,{css:{opacity: 1},ease:Quad.easeOut,delay:0.6});
+	gsap.to('#barraRound',.3,{css:{top: 0},ease:Quad.easeOut,delay:0.2});
 	//Cambio de alto de score dependiendo del juego activo
-	TweenMax.to('#scoreboardWrapper',.3,{css:{top: "-60px"},ease:Quad.easeOut,delay:0,onComplete:function(){
-		TweenMax.to('#scoreboardWrapper',.3,{css:{top: altoScore},ease:Quad.easeOut,delay:0});
+	gsap.to('#scoreboardWrapperGeneral',.3,{css:{top: "-60px"},ease:Quad.easeOut,delay:0,onComplete:function(){
+		gsap.to('#scoreboardWrapperGeneral',.3,{css:{top: XYScore[0]},ease:Quad.easeOut,delay:0});
+		//Cambio de posicion horizontal de score dependiendo del juego activo
+		gsap.to('#scoreboardWrapperP1',.3,{css:{right: XYScore[1]},ease:Quad.easeOut,delay:0});
+		gsap.to('#scoreboardWrapperP2',.3,{css:{left: XYScore[1]},ease:Quad.easeOut,delay:0});
 	}});
 
 	}
@@ -186,9 +205,9 @@ function init(){
 	/*Función que esconde logos para refrescar y cambiar, en este caso dependiendo del juego ingresado se decide si el
 	logo se mantiene al centro o se mueve a la derecha debido a que topa con las barras del juego*/
 	function cargarLogo(juego){
-		TweenMax.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
+		gsap.to('#logoWrapper',.3,{css:{opacity: 0},delay:0,onComplete:function(){ 
 			asignarPosLogos(juego);
-			TweenMax.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
+			gsap.to('#logoWrapper',1,{css:{opacity: 1},delay:.3});
 		}});
 
 	}
@@ -207,13 +226,13 @@ function init(){
 	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarNick(campoCSS,valor){
 
-		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
+		gsap.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){ 
 				$(campoCSS).css('font-size',nameSize); 
 				$(campoCSS).html(valor); 				
 
 				validarTextos(campoCSS);
 					
-				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.4}); 
+				gsap.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.4}); 
 		}});
 
 	}
@@ -222,13 +241,13 @@ function init(){
 	devolver la opacidad, en paralelo se valida el largo del texto para ajustar el tamaño del font según corresponda*/
 	function cargarRound(campoCSS,valor){
 
-		TweenMax.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
+		gsap.to(campoCSS,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
 				$(campoCSS).css('font-size',rdSize);
 				$(campoCSS).html(valor);					
 
 				validarTextos(campoCSS);
 					
-				TweenMax.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
+				gsap.to(campoCSS,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
 		}});
 
 	}
@@ -237,9 +256,9 @@ function init(){
 	devolver la opacidad*/
 	function cargarScore(scoreWrap,valorScore){
 
-		TweenMax.to(scoreWrap,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
+		gsap.to(scoreWrap,.3,{css:{opacity: 0},ease:Quad.easeOut,delay:.2,onComplete:function(){
 				$(scoreWrap).html(valorScore);					
-				TweenMax.to(scoreWrap,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
+				gsap.to(scoreWrap,.3,{css:{opacity: 1},ease:Quad.easeOut,delay:.3});
 		}});
 	}
 

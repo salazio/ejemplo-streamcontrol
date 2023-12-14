@@ -9,7 +9,7 @@ Proyecto de ejemplo para StreamControl con plantillas para overlays que pueden u
 - Directorio de Google Drive con los archivos PSD de los overlays creadas - [URL Google Drive](https://drive.google.com/drive/folders/1zCaCSO4HQP1T-pTdoRBYa790vfsSNNEw?usp=sharing)
 - [StreamControl](https://farpnut.net/streamcontrol/) - Programa utilizado para configuración de campos en los overlays
 - StreamControl.exe utilizado se descargó del proyecto [Shieldbreakers-StreamControl-setup](https://github.com/MiggL/Shieldbreakers-StreamControl-setup/), este incluye información sobre como agregar módulos de StartGG y Challonge a StreamControl
-- [TweenMax](https://greensock.com/products/products/tweenmax-r1/) - Librería usada para animaciones en JavaScript
+- [GSAP](https://gsap.com/docs/v3/) - Librería usada para animaciones en JavaScript
 - [Tutorial detallado de StreamControl](https://www.youtube.com/watch?v=qqyFknxaVWo) - [@bgcallisto](https://twitter.com/BGCallisto)
 
 ## Contenido
