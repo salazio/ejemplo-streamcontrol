@@ -1,16 +1,14 @@
 <!DOCTYPE StreamControlLayout>
 <!-- Smallest width for lineEdit = ~38 -->
-<layout width="670" height="270" tabbed="1">
+<layout width="470" height="270" tabbed="1">
  <tab name="Scoreboard">
-  <tabSet x="15" y="15" width="635" height="175">
+  <tabSet x="15" y="15" width="435" height="175">
   	<tab name="Players" scrollable="0">
       	<!-- Labels (Textos arriba de los campos) -->
 		<label x="30" y="10" width="40" height="13">SCORE</label>
 		<label x="80" y="10" width="60" height="13">NICKS</label>
 		<label x="220" y="10" width="60" height="13">PAIS</label>
 		<label x="275" y="10" width="80" height="13">PERSONAJE</label>
-		<label x="370" y="10" width="80" height="13">PERSONAJE 2</label>
-		<label x="465" y="10" width="80" height="13">PERSONAJE 3</label>
 		<!-- Info Player 1 -->
 		<label x="5" y="35" width="20" height="13">P1 :</label>
 		<lineEdit id="p1Nick" x="80" y="30" width="130" height="20" dataSet="players.csv" dataField="1">Nick Player 1</lineEdit>
@@ -25,19 +23,15 @@
 		<lineEdit id="p2Flag" x="220" y="60" width="45" height="20" dataSet="players.csv" dataField="2" master="p2Nick">Pais 2</lineEdit>
 		<!-- Personajes 1 -->
 		<lineEdit id="p1Char" x="275" y="30" width="85" height="20" dataSet="players.csv" dataField="3" master="p1Nick">Personaje</lineEdit>
-		<lineEdit id="p1Char2" x="370" y="30" width="85" height="20" dataSet="players.csv" dataField="4" master="p1Nick">Personaje 2</lineEdit>
-		<lineEdit id="p1Char3" x="465" y="30" width="85" height="20" dataSet="players.csv" dataField="5" master="p1Nick">Personaje 3</lineEdit>
 		<!-- Personajes 2 -->
 		<lineEdit id="p2Char" x="275" y="60" width="85" height="20" dataSet="players.csv" dataField="3" master="p2Nick">Personaje</lineEdit>
-		<lineEdit id="p2Char2" x="370" y="60" width="85" height="20" dataSet="players.csv" dataField="4" master="p2Nick">Personaje 2</lineEdit>
-		<lineEdit id="p2Char3" x="465" y="60" width="85" height="20" dataSet="players.csv" dataField="5" master="p2Nick">Personaje 3</lineEdit>
 		<!-- Botones para borrar campos -->
-		<button type="reset" x="565" y="30" width="40" height="23" id="clear1" reset="p1Nick,p1Flag,p1Char,p1Char2,p1Char3">Borrar</button>
-		<button type="reset" x="565" y="60" width="40" height="23" id="clear2" reset="p2Nick,p2Flag,p2Char,p2Char2,p2Char3">Borrar</button>
+		<button type="reset" x="370" y="30" width="40" height="23" id="clear1" reset="p1Nick,p1Flag,p1Char">Borrar</button>
+		<button type="reset" x="370" y="60" width="40" height="23" id="clear2" reset="p2Nick,p2Flag,p2Char">Borrar</button>
 		<!-- Reset de puntajes a 0 -->
 		<button type="reset" x="30" y="90" width="40" height="23" id="reset" reset="p1Score,p2Score">Reset</button>
 		<!-- Cambia campos de lado -->
-		<button type="swap" x="80" y="90" width="100" height="23" id="swap" swapSet1="p1Nick,p1Flag,p1Score,p1Char,p1Char2,p1Char3" swapSet2="p2Nick,p2Flag,p2Score,p2Char,p2Char2,p2Char3">Cambio de lado</button>
+		<button type="swap" x="80" y="90" width="100" height="23" id="swap" swapSet1="p1Nick,p1Flag,p1Score,p1Char" swapSet2="p2Nick,p2Flag,p2Score,p2Char">Cambio de lado</button>
 	</tab>
 	<tab name="Casters">
 	      <label x="35" y="10" width="60" height="13">CASTERS</label>

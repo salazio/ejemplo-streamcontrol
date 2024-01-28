@@ -1,8 +1,9 @@
+
 # ejemplo-streamcontrol
 
 Proyecto de ejemplo para StreamControl con plantillas para overlays que pueden usarse como base, se adjuntan PSD de las escenas para poder editarlas.
 
-![StreamControl](https://i.imgur.com/rFBHix5.png)
+![StreamControl_3v3](https://i.imgur.com/vStuQSb.png)
 
 ## Referencias
 
@@ -39,9 +40,11 @@ Este ejemplo contiene la base para lo siguiente:
 
 ![Scoreboard1](https://i.imgur.com/NGQU6i6.png)
 ![Scoreboard2](https://i.imgur.com/X04jlRa.png)
+![Scoreboard3](https://i.imgur.com/keyQIVq.png)
 ![Espera](https://i.imgur.com/4iJ0EAd.png)
 ![Casters](https://i.imgur.com/KizTP6e.png)
 ![Versus](https://i.imgur.com/RV1OrwD.png)
+![Versus3v3](https://i.imgur.com/ZGnEwTv.png)
 ![Ganador](https://i.imgur.com/omOq0VS.png)
 
 ## Tips para editar contenido
@@ -49,6 +52,14 @@ Este ejemplo contiene la base para lo siguiente:
 ### Agregar campos a StremControl
 
 - StreamControl permite personalizar los campos que tiene para luego usarlos en los overlays, para agregar más campos hay que editar el archivo layout.xml encontrado en el directorio "sc", para detalles sobre como agregar un campo nuevo revisa la [Documentación de layouts para StreamControl](https://farpnut.net/streamcontrol/layout-documentation/)
+
+### Eliminar campos para personajes 2/3 de StremControl y reducir tamaño de la app
+
+- En caso de no requerir campos para más de un solo personaje se puede cambiar el archivo layout.xml, dentro del directorio "sc" hay un archivo "layout_sin3v3.xml", simplemente se debe cambiar el nombre de "layout.xml" y dejar el archivo "layout_sin3v3.xml" con ese nombre, al hacer eso cuando se abra StreamControl ya no aparecerán los campos adicionales.
+
+**Nota:** Luego del cambio de layout es posible que la primera vez que guarden en StreamControl este dejé de responder y se cierre, cuando lo abran denuevo esto debería quedar resuelto.
+
+![StreamControl_1v1](https://i.imgur.com/N5gwq6v.png)
 
 ### Agregar personajes de otros juegos
 

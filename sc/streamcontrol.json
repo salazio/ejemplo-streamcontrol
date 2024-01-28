@@ -5,12 +5,18 @@
     "gNick": "Player 1",
     "game": "BBCF",
     "nEvento": "Torneo Ejemplo",
-    "p1Char": "Noel",
+    "p1Char": "Ragna",
+    "p1Char2": "Noel",
+    "p1Char3": "Hakumen",
+    "p1Flag": "CL",
     "p1Nick": "Player 1",
     "p1Score": "0",
     "p2Char": "Rachel",
+    "p2Char2": "Jin",
+    "p2Char3": "Izayoi",
+    "p2Flag": "BR",
     "p2Nick": "Player 2",
     "p2Score": "0",
     "round": "Grand Finals",
-    "timestamp": "1702525070"
+    "timestamp": "1706479285"
 }

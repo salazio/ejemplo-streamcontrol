@@ -1,0 +1,279 @@
+<html>
+
+<head>
+
+	<script src="../js/scoreboardBandera.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/gsap.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<style text="text/CSS">
+
+	@font-face {src: url('../fonts/Steagisler.otf'); font-family: "Steagisler";}
+
+	body {
+		width: 1920px;
+		height: 1080px;
+		overflow: hidden;
+		background: transparent;
+		padding: 0px;
+		margin: 0px;
+		text-transform: none;
+		color: white;
+		font-family: "Steagisler";
+		-webkit-font-smoothing: antialiased;
+	}
+
+	#testBG{
+		position: absolute;
+		z-index: 0;
+	}
+	
+	#barraRound {
+		position: absolute;
+		left: 850px;
+		top: -60px;
+		z-index: 1;
+	}
+
+	.barraNombre{
+		position: absolute;
+		left: 0px;
+		/*top: -60px;*/
+		z-index: 3;
+	}
+
+	#barraPlayer1{
+		position: absolute;
+		left: 310px;
+	}
+
+	#barraPlayer2{
+		position: absolute;
+		left: 1250px;
+	}
+
+	.barraScore{
+		position: absolute;
+		/*top: -60px;*/
+		z-index: 1;
+	}
+
+	#barraScore1{
+		position: absolute;
+		left: 680px;
+	}
+
+	#barraScore2{
+		position: absolute;
+		left: 1190px;
+	}
+
+	/* Ajustes para bandera en scoreboard, las banderas disponibles se encuentran en img/banderas */
+
+	.barraBandera{
+		position: absolute;
+		left: 0px;
+		/*top: -60px;*/
+		z-index: 3;
+	}
+
+	#barraBandera1{
+		position: absolute;
+		left: 240px;
+	}
+
+	#barraBandera2{
+		position: absolute;
+		left: 1608px;
+	}
+
+	/*El cuadro en donde se encuentran las banderas es transparente, por este motivo se asignó un z-index de 2 a las imágenes para
+	mantenerlas atrás del cuadro*/
+	.banderas{
+		position: absolute;
+		top: 1px;
+		width: 71px;
+    	height: auto;
+		z-index: 2;
+	}
+
+	#imgBandera1{
+		position: absolute;
+		left: 240px;
+	}
+
+	#imgBandera2{
+		position: absolute;
+		left: 1608px;
+	}
+
+
+	div.indexInfo {
+	  position:absolute; z-index:4;
+	}
+	
+	.nicks {
+		position: absolute;
+	    width: 346px;
+	    height: 40px;
+	    line-height: 40px;
+	    text-align: center;
+	    top: 6px;
+	    font-size: 29px;
+	    z-index: 4;
+	}	
+	
+	#p1Nick {
+		left: 317px;
+	}
+	
+	#p2Nick {
+		left: 1257px;
+	}
+
+	.scores {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		top: 6px;
+		font-size: 38px;
+		opacity: 0;
+		z-index: 4;
+	}
+
+
+	#p1Score {
+		left: 685px;
+	}
+	
+	#p2Score {
+		left: 1195px;
+	}
+	
+	#round {
+		top: 5px;
+	    position: absolute;
+	    width: 200px;
+	    height: 35px;
+	    left: 860px;
+	    line-height: 35px;
+	    text-transform: capitalize;
+	    text-align: center;
+	    font-size: 26px;
+	    z-index: 3;
+	}
+
+	#logoWrapper{
+		opacity: 0;
+	}
+
+	#scoreboardWrapperGeneral{
+		position: absolute;
+		top: -60px;
+		z-index: 1;
+	}
+
+	#scoreboardWrapperP1{
+		position: absolute;
+		z-index: 1;
+	}
+
+	#scoreboardWrapperP2{
+		position: absolute;
+		z-index: 1;
+	}
+	
+	.logos {
+		width: 130px;
+	    height: 130px;
+	    position: absolute;
+	    left: 895px;
+	    bottom: 10px;
+	    opacity: .9;
+	}
+	
+	.hold {
+		display: none;
+	}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+	<!--Ejemplos de fondo para prueba-->
+	<!--<div id="testBG">
+		<img src="../imgs/demo/BBCF.png"></img>
+	</div>-->
+
+	<div id="faseWrapper">
+		<img id="barraRound" src="../imgs/scoreboard/barraRound.png"></img>
+		<div id="rdWrapper">
+			<span id="round"></span>
+		</div>
+	</div>
+
+	<div id="scoreboardWrapperGeneral">
+
+	<div id="scoreboardWrapperP1">
+
+		<div id="barraWrapper1">
+			<img id="barraPlayer1" src="../imgs/scoreboard/barraPlayer.png" class="barraNombre"></img>
+			<img id="barraScore1" src="../imgs/scoreboard/barraScore.png" class="barraScore"></img>
+			<img id="imgBandera1" class="banderas"></img>
+			<img id="barraBandera1" src="../imgs/scoreboard/barraBandera.png" class="barraBandera"></img>
+		</div>
+
+		<div id="containerTxt1" class="indexInfo">
+			<div id="leftWrapper">
+				<span id="p1Score" class="scores"></span>
+				<span id="p1Nick" class="nicks"></span>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="scoreboardWrapperP2">
+
+		<div id="barraWrapper2">
+			<img id="barraPlayer2" src="../imgs/scoreboard/barraPlayer.png" class="barraNombre"></img>
+			<img id="barraScore2" src="../imgs/scoreboard/barraScore.png" class="barraScore"></img>
+			<img id="imgBandera2" class="banderas"></img>
+			<img id="barraBandera2" src="../imgs/scoreboard/barraBandera.png" class="barraBandera"></img>
+		</div>
+
+		<div id="containerTxt2" class="indexInfo">
+			<div id="rightWrapper">
+				<span id="p2Score" class="scores"></span>
+				<span id="p2Nick" class="nicks"></span>
+				</span>
+			</div>
+		</div>
+
+	</div>
+
+	</div>
+
+	<div id="gameHold" class="hold"></div> <!-- div que esconde el valor del campo "game" -->
+
+	<div id="logoWrapper">
+		<img id="logo" class="logos" src="../imgs/logos/logo.png"></img>
+	</div>
+	
+<script type="text/javascript">
+
+	var nameSize = '29px'; //valor de font por defecto para #p1Nick y #p2Nick,debe coincidir con valor en css de .nicks
+	var rdSize = '26px'; //valor de font por defecto para #round, debe coincidir con valor en css
+	var adjustLg = ['885','0','130px','130px']; //Arreglo para determinar tamaño y posicion de logos para juegos que requieran usar el centro de la pantalla
+</script>
+
+
+</body>
+
+</html>

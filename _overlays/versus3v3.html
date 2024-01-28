@@ -1,0 +1,229 @@
+<html>
+
+<head>
+
+	<script src="../js/versus3v3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/libs/gsap.min.js" type="text/javascript" charset="utf-8"></script>
+
+<style text="text/CSS">
+
+	@font-face {src: url('../fonts/Steagisler.otf'); font-family: "Steagisler";}
+
+	body {
+		width: 1920px;
+		height: 1080px;
+		overflow: hidden;
+		background: transparent;
+		padding: 0px;
+		margin: 0px;
+		text-transform: none;
+		color: white;
+		font-family: "Steagisler";
+		-webkit-font-smoothing: antialiased;
+	}
+
+	
+
+	#fondo{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 2; 
+	}
+
+	#overlay{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 4; 
+	}
+
+	
+	#logoWrapper{
+		position: absolute;
+		z-index: 5; 
+		opacity: 0;
+	}
+
+	.logos {
+		width: 200px;
+	    height: auto;
+	    position: absolute;
+	    left: 860px;
+	    top: 10px;
+	    opacity: 1;
+	}
+
+	
+	div.indexChars {
+	  position:absolute; z-index:3;
+	}
+
+	div.indexInfo {
+	  position:absolute; z-index:5;
+	}
+
+	.nicks {
+		position: absolute;
+	    width: 741px;
+	    height: 168px;
+	    line-height: 168px;
+	    text-align: center;
+	    top: 728px;
+	    font-size: 85px;
+	    z-index: 5;
+	}	
+
+	#p1Nick {
+		position: absolute;
+	    left: 73px;
+	    text-align: center;
+	    opacity: 0;
+	}
+	
+	#p2Nick {
+		position: absolute;
+	    left: 1106px;
+	    text-align: center;
+	    opacity: 0;
+	}
+	
+	#pj1Wrapper{
+		opacity: 0;
+	}
+
+	#pj2Wrapper{
+		opacity: 0;
+	}
+
+	/* Debido a que se requiere compartir el espacio donde va el render el pj se agrega una mascara 
+	para acortar su tamaño (solo se verá la parte de la imagen que esté dentro de la mascara)*/
+
+	.personajes{
+		-webkit-mask-image: url("../imgs/versus/maskTrio.png");
+		-webkit-mask-size: 100%;
+		position: absolute;
+		width: 960px;
+    	height: auto;
+		z-index: 3;
+	}
+
+	#imgPersonajeP1Trio1{
+		left: -320px;
+	}
+
+	#imgPersonajeP1Trio2{
+		left: 0px;
+	}
+
+	#imgPersonajeP1Trio3{
+		left: 320px;
+	}
+
+	#imgPersonajeP2Trio1{
+		left: 640px;
+	}
+
+	#imgPersonajeP2Trio2{
+		left: 960px;
+	}
+
+	#imgPersonajeP2Trio3{
+		left: 1280px;
+	}
+
+	#nTorneo{
+		position: absolute;
+	    top: 10px;
+	    width: 400px;
+	    height: 89px;
+	    line-height: 89px;
+	    text-align: left;
+	    font-size: 62px;
+	    left: 760px;
+	    opacity: 1;
+	    z-index: 5;
+	}
+
+	#round {
+		position: absolute;
+	    top: 927px;
+	    width: 360px;
+	    height: 116px;
+	    left: 780px;
+	    line-height: 116px;
+	    text-align: center;
+	    font-size: 55px;
+	    z-index: 5;
+	    opacity: 0;
+	}
+
+	#gameHold {
+		display: none;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+	<div id="backgroundOverlay">
+		<img id="fondo" src="../imgs/fondo.png"></img>
+		<img id="overlay" src="../imgs/versus/versusTrio.png"></img>
+	</div>
+
+	<!-- Para el caso de esta escena al requerir tener 3 personajes por lado se definen variables adicionales dentro del pj1Wrapper y pj2Wrapper -->
+
+	<div id="containerChars1" class="indexChars">
+		<div id="pj1Wrapper">
+			<img id="imgPersonajeP1Trio1" class="personajes"></img>
+			<img id="imgPersonajeP1Trio2" class="personajes"></img>
+			<img id="imgPersonajeP1Trio3" class="personajes"></img>
+		</div>
+
+	</div>
+
+	<div id="containerChars2" class="indexChars">
+
+		<div id="pj2Wrapper">
+			<img id="imgPersonajeP2Trio1" class="personajes"></img>
+			<img id="imgPersonajeP2Trio2" class="personajes"></img>
+			<img id="imgPersonajeP2Trio3" class="personajes"></img>
+		</div>
+
+	</div>
+
+	<div id="infoVS">
+
+		<div id="containerInfo" class="indexInfo">
+			<div id="leftWrapper">
+				<span id="p1Nick" class="nicks"></span>
+			</div>
+		
+			<div id="rightWrapper">
+				<span id="p2Nick" class="nicks"></span>
+			</div>
+
+			<div id="rdWrapper">
+				<span id="round"></span>
+			</div>
+		</div>
+	</div>
+	
+	<div id="gameHold" class="hold"></div> <!-- div que esconde el valor del campo "game" -->
+
+	<div id="logoWrapper">
+		<img id="logo" class="logos" src="../imgs/logos/logo.png"></img>
+	</div>
+
+<script type="text/javascript">
+	var nameSize = '85px'; //valor de font por defecto para #p1Nick y #p2Nick,debe coincidir con valor en css de .nicks
+	var rdSize = '55px'; //valor de font por defecto para #round, debe coincidir con valor en css
+</script>
+
+
+</body>
+
+</html>
