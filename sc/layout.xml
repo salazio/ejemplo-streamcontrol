@@ -76,7 +76,7 @@
 		<!-- Personajes -->
 		<lineEdit id="gChar" x="220" y="30" width="85" height="20" dataSet="players.csv" dataField="2" master="gNick">Personaje</lineEdit>
 		<!-- Botones para borrar campos -->
-		<button type="reset" x="320" y="30" width="40" height="23" id="clear1" reset="gNick,gChar">Borrar</button>
+		<button type="reset" x="320" y="30" width="40" height="23" id="clearGanador" reset="gNick,gChar">Borrar</button>
 	</tab>
   </tabSet>
 </tab>
