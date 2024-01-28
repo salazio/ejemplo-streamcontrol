@@ -53,7 +53,7 @@ Este ejemplo contiene la base para lo siguiente:
 
 - StreamControl permite personalizar los campos que tiene para luego usarlos en los overlays, para agregar más campos hay que editar el archivo layout.xml encontrado en el directorio "sc", para detalles sobre como agregar un campo nuevo revisa la [Documentación de layouts para StreamControl](https://farpnut.net/streamcontrol/layout-documentation/)
 
-### Eliminar campos para personajes 2/3 de StremControl y reducir tamaño de la app
+### Eliminar campos para personajes 2/3 de StreamControl y reducir tamaño de la app
 
 - En caso de no requerir campos para más de un solo personaje se puede cambiar el archivo layout.xml, dentro del directorio "sc" hay un archivo "layout_sin3v3.xml", simplemente se debe cambiar el nombre de "layout.xml" y dejar el archivo "layout_sin3v3.xml" con ese nombre, al hacer eso cuando se abra StreamControl ya no aparecerán los campos adicionales.
 
