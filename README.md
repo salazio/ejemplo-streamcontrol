@@ -49,7 +49,7 @@ Este ejemplo contiene la base para lo siguiente:
 
 ## Tips para editar contenido
 
-### Agregar campos a StremControl
+### Agregar campos a StreamControl
 
 - StreamControl permite personalizar los campos que tiene para luego usarlos en los overlays, para agregar más campos hay que editar el archivo layout.xml encontrado en el directorio "sc", para detalles sobre como agregar un campo nuevo revisa la [Documentación de layouts para StreamControl](https://farpnut.net/streamcontrol/layout-documentation/)
 
