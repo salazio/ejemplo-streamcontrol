@@ -53,6 +53,10 @@ function init(){
 				alto = 55;
 				separado = -35;
 				break;
+			case 'GBVSR':
+				alto = 15;
+				separado = -5;
+				break;
 			default:
 				alto = 0;
 				separado = 0;
